@@ -82,31 +82,6 @@ if(in_array($type,$surportedExtn)){
 }
 }
 
-function getUser($email){
-global $con;
-$userQuery=$con->query("SELECT * FROM allUsers where email='$email'");
-if($userQuery->num_rows>0){
-$user=$userQuery->fetch_assoc();
-$user["password"]=null;
-return $user;
-}
-else{
-  return false;
-}
-}
-
-function getRestarant($email){
-  global $con;
-$userQuery=$con->query("SELECT * FROM allRestaurantsList  where email='$email'");
-if($userQuery->num_rows>0){
-$res=$userQuery->fetch_assoc();
-$res["passoword"]=null;
-return $res;
-}
-else{
-  return false;
-}
-}
 
 function validateEmail($email){
   $email=filter_var($_POST["email"],FILTER_SANITIZE_EMAIL);
